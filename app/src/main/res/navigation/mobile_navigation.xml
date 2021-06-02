@@ -3,23 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_top">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.jp.imggram.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_top"
+        android:name="com.jp.imggram.ui.home.TopPhotosFragment"
+        android:label="@string/title_top"
+        tools:layout="@layout/fragment_top_photos" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.jp.imggram.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.jp.imggram.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_hot"
+        android:name="com.jp.imggram.ui.dashboard.HotPhotosFragment"
+        android:label="@string/title_hot"
+        tools:layout="@layout/fragment_hot_photos" />
 </navigation>

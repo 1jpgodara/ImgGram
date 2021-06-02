@@ -1,4 +1,4 @@
-package com.jp.imggram.ui.dashboard
+package com.jp.imggram.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.jp.imggram.R
 
-class DashboardFragment : Fragment() {
+class TopPhotosFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var topPhotosViewModel: TopPhotosViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProvider(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        topPhotosViewModel =
+                ViewModelProvider(this).get(TopPhotosViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_top_photos, container, false)
+        val textView: TextView = root.findViewById(R.id.text_home)
+        topPhotosViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

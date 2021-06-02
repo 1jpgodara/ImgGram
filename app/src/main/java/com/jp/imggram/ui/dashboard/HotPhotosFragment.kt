@@ -1,4 +1,4 @@
-package com.jp.imggram.ui.notifications
+package com.jp.imggram.ui.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,19 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.jp.imggram.R
 
-class NotificationsFragment : Fragment() {
+class HotPhotosFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    private lateinit var hotPhotosViewModel: HotPhotosViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-                ViewModelProvider(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
+        hotPhotosViewModel = ViewModelProvider(this).get(HotPhotosViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_hot_photos, container, false)
+        val textView: TextView = root.findViewById(R.id.text_photos)
+        hotPhotosViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
