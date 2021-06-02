@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_top"
-        android:name="com.jp.imggram.ui.home.TopPhotosFragment"
+        android:name="com.jp.imggram.ui.top.TopPhotosFragment"
         android:label="@string/title_top"
         tools:layout="@layout/fragment_top_photos" />
 
     <fragment
         android:id="@+id/navigation_hot"
-        android:name="com.jp.imggram.ui.dashboard.HotPhotosFragment"
+        android:name="com.jp.imggram.ui.hot.HotPhotosFragment"
         android:label="@string/title_hot"
         tools:layout="@layout/fragment_hot_photos" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.jp.imggram.ui.dashboard
+package com.jp.imggram.ui.hot
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

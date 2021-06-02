@@ -2,4 +2,7 @@
     <string name="app_name">ImgGram</string>
     <string name="title_top">Top Photos</string>
     <string name="title_hot">Hot Photos</string>
+
+    <!-- Content Descriptions   -->
+    <string name="story_photo">story_photo</string>
 </resources>
