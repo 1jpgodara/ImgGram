@@ -15,17 +15,17 @@ class TopPhotosFragment : Fragment() {
     private lateinit var topPhotosViewModel: TopPhotosViewModel
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        topPhotosViewModel =
-                ViewModelProvider(this).get(TopPhotosViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_top_photos, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        topPhotosViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+
+        topPhotosViewModel = ViewModelProvider(this).get(TopPhotosViewModel::class.java)
+        topPhotosViewModel.text.observe(viewLifecycleOwner) {
+
+        }
+
         return root
     }
 }
