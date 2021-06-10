@@ -1,0 +1,10 @@
+<lint>
+    <issue id="OldTargetApi" severity="ignore" />
+    <issue id="NewApi" severity="ignore" />
+    <issue id="ObjectAnimatorBinding" severity="ignore" />
+    <issue id="RestrictedApi" severity="ignore" />
+    <issue id="NegativeMargin" severity="warning" />
+    <issue id="LogConditional" severity="warning" />
+    <issue id="ConvertToWebp" severity="warning" />
+    <issue id="StopShip" severity="error" />
+</lint>

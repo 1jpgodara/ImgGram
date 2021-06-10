@@ -1,0 +1,97 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.jp.imggram"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.compileSdk
+        versionCode versions.versionCode
+        versionName "${versions.versionName}"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    lintOptions {
+        xmlReport true
+        abortOnError false
+        checkDependencies true
+        ignoreTestSources true
+        lintConfig new File(rootProject.projectDir, "lint.xml")
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            resValue 'string', 'auth_token', "${authorization}"
+        }
+
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            resValue 'string', 'auth_token', "${authorization}"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation libraries.androidX.appcompat
+    implementation libraries.androidX.constraintLayout
+    implementation libraries.androidX.design
+    implementation libraries.androidX.navigationFragment
+    implementation libraries.androidX.navigrationUi
+
+    implementation libraries.androidX.coreKtx
+    api libraries.androidX.annotation
+    implementation libraries.androidX.preference
+
+    implementation libraries.kotlin.stdlib
+    implementation libraries.kotlin.coroutinesCore
+    implementation libraries.kotlin.coroutinesAndroid
+    implementation libraries.kotlin.coroutinesRx2
+
+    implementation libraries.arch.lifecycleExtension
+    implementation libraries.arch.livedata
+    implementation libraries.arch.paging
+    implementation libraries.arch.livedataKtx
+    implementation libraries.arch.viewmodelKtx
+    implementation libraries.arch.paging
+
+    implementation libraries.glide.glide
+    annotationProcessor libraries.glide.compiler
+    kapt libraries.glide.compiler
+
+    implementation libraries.square.retrofit
+    implementation libraries.square.moshiConverter
+    implementation libraries.square.moshiKotlin
+
+    implementation libraries.hilt.hilt
+    kapt libraries.hilt.hiltCompiler
+
+    testImplementation libraries.test.junit
+    androidTestImplementation libraries.test.extJunit
+    androidTestImplementation libraries.test.espressoCore
+}
