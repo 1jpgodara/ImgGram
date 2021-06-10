@@ -1,14 +1,14 @@
-package com.jp.imggram.ui.story
+package com.jp.imggram.utils
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerViewAdapter<T>(
+class GenericListAdapter<T>(
     data: List<T>?,
     private val itemClickListener: ((Int, T?) -> Unit)? = null,
-    internal val creator: (ViewGroup, Int) -> RecyclerViewHolder<T>,
-    val viewType: ((T?) -> Int)?
-) : RecyclerView.Adapter<RecyclerViewHolder<T>>() {
+    internal val creator: (ViewGroup, Int) -> GenericViewHolder<T>,
+    private val viewType: ((T?) -> Int)?
+) : RecyclerView.Adapter<GenericViewHolder<T>>() {
 
     private var data: List<T>? = null
 
@@ -20,11 +20,11 @@ class RecyclerViewAdapter<T>(
 
     fun getItem(position: Int) = data?.get(position)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder<T> {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GenericViewHolder<T> {
         return creator(parent, viewType)
     }
 
-    override fun onBindViewHolder(holder: RecyclerViewHolder<T>, position: Int) {
+    override fun onBindViewHolder(holder: GenericViewHolder<T>, position: Int) {
         holder.bind(data?.get(position))
         itemClickListener?.let {
             holder.itemView.setOnClickListener { it(holder.layoutPosition, data?.get(position)) }

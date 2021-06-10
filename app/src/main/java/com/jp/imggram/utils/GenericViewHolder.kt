@@ -1,9 +1,9 @@
-package com.jp.imggram.ui.story
+package com.jp.imggram.utils
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class RecyclerViewHolder<U> protected constructor(
+abstract class GenericViewHolder<U> protected constructor(
     itemView: View
 ) : RecyclerView.ViewHolder(itemView) {
     /**

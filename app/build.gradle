@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -21,6 +22,7 @@ android {
     buildFeatures {
         dataBinding true
     }
+
     lintOptions {
         xmlReport true
         abortOnError false
@@ -31,8 +33,16 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            resValue 'string', 'auth_token', "${authorization}"
+        }
+
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            resValue 'string', 'auth_token', "${authorization}"
         }
     }
     compileOptions {
@@ -78,7 +88,10 @@ dependencies {
     implementation libraries.square.moshiConverter
     implementation libraries.square.moshiKotlin
 
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation libraries.hilt.hilt
+    kapt libraries.hilt.hiltCompiler
+
+    testImplementation libraries.test.junit
+    androidTestImplementation libraries.test.extJunit
+    androidTestImplementation libraries.test.espressoCore
 }
